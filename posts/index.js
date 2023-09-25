@@ -24,6 +24,10 @@ resp.status(201).json({"status":201,"post_id":pid});
 // for status
 });
 
+app.post("/events", (req,resp) => {
+resp.status(200).json({status:200,message:"Successful response"});
+});
+
 app.listen("8080", () => {
 console.log("Running posts at 8080");
 });

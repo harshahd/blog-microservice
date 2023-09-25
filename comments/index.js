@@ -39,6 +39,11 @@ resp.status(201).json({"status":201,"comment_id":cid});
 console.log(comments);
 });
 
+app.post("/events", (req,resp) => {
+    resp.status(200).json({status:200,message:"Successful response"});
+    });
+    
+
 app.listen(8081, () => {
 console.log("Comment service running in 8081");
 });
