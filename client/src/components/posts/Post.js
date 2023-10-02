@@ -8,6 +8,9 @@ const [body,setBody]=useState("");
 const onPostSubmit=async (e) => {
 e.preventDefault();
 const data={"title":title,"body":body};
+const eventBase="http://localhost:8082/event";
+await axios.post(eventBase, {type:"create_post",data:data});
+// const baseurl="http://127.0.0.1:8080/post";
 const baseurl="http://127.0.0.1:8080/post";
 await axios.post(baseurl, data).then((rsp) => {
 alert(rsp.status);

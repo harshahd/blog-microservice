@@ -10,6 +10,9 @@ const App=() => {
 const [allPosts,setAllPosts]=useState([]);
 
 const getAllPosts=async () => {
+    // const getPost={type:"display_posts",data:[]};
+    const eventBase="http://localhost:8082/event";
+    // await Axios.post(eventBase, {type:"display_posts"});
 await Axios.get("http://127.0.0.1:8080/posts").then((rsp) => {
 if(rsp.status===200) {
 // setAllPosts(rsp.data.posts);
