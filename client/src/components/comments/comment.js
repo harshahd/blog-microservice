@@ -7,8 +7,8 @@ const [commentText,setCommentText]=useState("");
 const onCommentSubmit=async (e) => {
 e.preventDefault();
 const data={"comment":commentText};
-const eventbase="http://localhost:8082/event";
-await axios.post(eventbase, {type:"create_comment",data:data});
+// const eventbase="http://localhost:8082/event";
+// await axios.post(eventbase, {type:"create_comment",data:data});
 const baseurl="http://127.0.0.1:8081/post/"+props.postId+"/comment";
 // const baseurl="http://127.0.0.1:8082/event";
 await axios.post(baseurl, data).then((rsp) => {

@@ -32,7 +32,7 @@ contains_post=true;
     });
     if(!contains_post)
     {
-        let postComment={"post_id":req.params['id'],"comment":comment};
+        let postComment={"post_id":req.params['id'],"comment":[comment]};
         comments.push(postComment);
     }
 resp.status(201).json({"status":201,"comment_id":cid});
