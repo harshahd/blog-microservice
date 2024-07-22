@@ -12,7 +12,7 @@ const data={"comment":commentText};
 const baseurl="http://127.0.0.1:8081/post/"+props.postId+"/comment";
 // const baseurl="http://127.0.0.1:8082/event";
 await axios.post(baseurl, data).then((rsp) => {
-alert(rsp.status);
+console.log(rsp.status);
 }).catch((err) => {
 alert(err);
 });

@@ -2,11 +2,18 @@ import {useState, useEffect} from "react";
 import SingleComment from "./singleComment";
 
 const ListComments=(props) => {
+//    alert(JSON.stringify(props.opinions));
 return (
 <div className="container">
-{props.opinions.length===0 || props.opinions===undefined?<p>No comments for this post</p>:props.opinions.map((pst) => {
-return <SingleComment commentText={pst.comment}/>    
-})}
+    { props.opinions.length>0 && (
+<ul>
+    {props.opinions.map((pst) => {
+return (
+    <SingleComment comment={pst}/>
+);
+    })}
+    </ul>
+    )}
 </div>
 );
 };

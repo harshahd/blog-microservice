@@ -13,7 +13,7 @@ const data={"title":title,"body":body};
 // const baseurl="http://127.0.0.1:8080/post";
 const baseurl="http://127.0.0.1:8080/post";
 await axios.post(baseurl, data).then((rsp) => {
-alert(rsp.status);
+console.log(rsp.status);
 }).catch((err) => {
 alert(err);
 });
