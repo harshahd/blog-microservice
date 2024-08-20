@@ -9,7 +9,7 @@ return (
 <ul>
     {props.opinions.map((pst) => {
 return (
-    <SingleComment comment={pst}/>
+<SingleComment comment={pst}/>
 );
     })}
     </ul>
