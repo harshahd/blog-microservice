@@ -9,15 +9,15 @@ app.use(express.json());
 app.use(cors({origin:'*'}));
 
 app.post("/event", (req,res) => {
-axios.post("http://localhost:8080/event", req.body).catch((err) => {
+axios.post("http://localhost:8180/event", req.body).catch((err) => {
     console.log(err);
 });
-axios.post("http://localhost:8081/event", req.body).catch((err) => {
+axios.post("http://localhost:8181/event", req.body).catch((err) => {
 console.log(err);
 });
 res.status(200).json({status:200,message:"success"});
 });
 
-app.listen(8082, () => {
+app.listen(8182, () => {
 console.log("App started at port 8082");
 });

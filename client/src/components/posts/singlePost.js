@@ -5,7 +5,7 @@ import Comment from "../comments/comment";
 const SinglePost=(props) => {
 const [comments,setComments]=useState([]);
 const getAllComments=async (postId) => {
-const url="http://127.0.0.1:8081/post/"+postId+"/comments";
+const url="http://127.0.0.1:8181/post/"+postId+"/comments";
 await axios.get(url).then((rsp) =>
 {
 //    alert(JSON.stringify(rsp.data));

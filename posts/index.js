@@ -15,14 +15,14 @@ app.use(bodyParser.json());
 
 
 app.get("/posts", (req, resp) => {
-    axios.post("http://localhost:8002/event", {"type":"get_all_posts"});
+    axios.post("http://localhost:8182/event", {"type":"get_all_posts"});
     console.log("Emitted created_post");
     let posts=getAllPosts();
     resp.status(200).json({"status":200,"posts":posts});
 });
 
 app.post("/post", (req, resp) => {
-    axios.post("http://localhost:8002/event", {"type":"create_post"});
+    axios.post("http://localhost:8182/event", {"type":"create_post"});
     console.log("Emitted get_all_posts");
     const {title,body}=req.body;
     let pid=newPost(title,body);
@@ -51,6 +51,6 @@ resp.json({status:200,event:type});
 
 
 
-app.listen("8080", () => {
+app.listen("8180", () => {
 console.log("Running posts at 8080");
 });
