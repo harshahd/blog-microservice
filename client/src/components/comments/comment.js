@@ -20,8 +20,10 @@ alert(err);
 
 return (
 <div id={"new-comment-"+props.postId}>
+<h3>Your comment for {props.postTitle}</h3>
 <form onSubmit={(e) => onCommentSubmit(e)}>
 <div className="row">
+    
 <label htmlFor={"pcmttext-"+props.postId} className="col-sm">What is your opinion about the post {props.postTitle}?</label>
 <textarea id={"pcmttext-"+props.postId} maxLength={500} required onChange={(e) => setCommentText(e.target.value)} className="col-lg"/>
 </div>

@@ -16,7 +16,6 @@ app.get("/post/:id/comments", (req, resp) => {
 return resp.status(200).json(result);        
 });
 
-<<<<<<< HEAD
 app.post("/post/:id/comment", async (req, resp) => {
     const cid=newComment(req.params['id'], req.body.comment);
 await axios.post("http://localhost:8185/event", {type:"new_comment", data:{id:cid,comment:req.body.comment}});
