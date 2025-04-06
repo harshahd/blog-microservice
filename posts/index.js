@@ -19,20 +19,10 @@ app.get("/posts", (req, resp) => {
     return resp.status(200).json({"status":200,"posts":posts});
 });
 
-app.post("/post", (req, resp) => {
+app.post("/post", async (req, resp) => {
     const {title,body}=req.body;
     let pid=newPost(title,body);
-    /*
-    axios.post("http://localhost:8182/event", {
-        "type":"create_post",
-    data:{
-        pid,
-        title,
-        body
-    }
-});
-    console.log("Emitted get_all_posts");
-    */
+    await axios.post("http://localhost:8185/event", {type:"create_post", data:{post_id:pid,title:title,body:body}});
     return resp.status(201).json({"status":201,"data":{"post_id":pid,"title":title,"body":body}});
 // for status
 });

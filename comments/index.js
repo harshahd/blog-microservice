@@ -12,24 +12,21 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.get("/post/:id/comments", (req, resp) => {
-    axios.post("http://127.0.0.1:8182/event", {type:"get_all_comments"});
-    console.log("Emmited get_all_comments event");
     const result=getComments(req.params['id']);
 resp.status(200).json(result);        
 });
 
-app.post("/post/:id/comment", (req, resp) => {
-    axios.post("http://127.0.0.1:8182/event", {type:"create_new_comment"});
-    console.log("Emited create_new_comment event");
+app.post("/post/:id/comment", async (req, resp) => {
     const cid=newComment(req.params['id'], req.body.comment);
+await axios.post("http://localhost:8185/event", {type:"new_comment", data:{id:cid,comment:req.body.comment}});
 resp.status(201).json({"status":201,"comment_id":cid});
-console.log(comments);
+// console.log(comments);
 });
 
 app.post("/event", (req,resp) => {
     const type=req.body.type;
     switch(type) {
-        case "create_new_comment":
+        case "new_comment":
             {
                 console.log("Comment create event received");
                 break;
@@ -45,5 +42,5 @@ app.post("/event", (req,resp) => {
         
 
 app.listen(8181, () => {
-console.log("Comment service running in 8081");
+console.log("Comment service running in 8181");
 });
