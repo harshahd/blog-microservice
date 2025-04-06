@@ -1,5 +1,4 @@
 import {useState} from "react";
-import Axios from "axios";
 import axios from "axios";
 
 const Post=() => {
@@ -15,7 +14,7 @@ const baseurl="http://127.0.0.1:8180/post";
 await axios.post(baseurl, data).then((rsp) => {
 console.log(rsp.status);
 }).catch((err) => {
-alert(err);
+console.log(err);
 });
 };
 
